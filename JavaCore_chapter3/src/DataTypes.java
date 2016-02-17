@@ -21,5 +21,5 @@ public class DataTypes {
 	int octal = 010;
 	int binary = 0b0110_0101;
 	
-	//TEST push
+	//TEST push new
 }
