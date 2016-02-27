@@ -21,5 +21,33 @@ public class DataTypes {
 	int octal = 010;
 	int binary = 0b0110_0101;
 	
-	//TEST push new
+	//floating point
+	
+	//float 4 bytes - 6,7 decimal digits
+	float f_min = -3.402_823_47E+38F; //approximately
+	float f_max = 3.402_823_4733252563463454645645756756838683586324235362472675687648687E+38F; //approximately
+	
+	//double 8 bytes - 15 decimal digits
+	double d_min = -1.797_693_134_862_315_7E+308D; //approximately
+	double d_max = 1.797_693_134_862_315_7E+308;	//it's not necessary to use 'D'
+	
+	double d_hex = 0x1A.0p-3; // = (16+10) * 2^-3 = 0.125
+	
+	double d_const_min = -2/0.0; // = -2.0/0 != 2/0 NEGATIVE_INFINITY === Double.NEGATIVE_INFINITY
+	double d_const_max = 5.0/0; //POSITIVE_INFINITY === Double.POSITIVE_INFINITY
+	double d_const_zero = 0.0/0;// = sqrt(-5); // NaN === Double.NaN
+	
+	
+	public static void main(String[] args) {
+		DataTypes d = new DataTypes();
+		System.out.println(d.d_hex);
+		
+		double dd= 0x1;
+		System.out.println(dd);
+		
+		System.out.println(d.d_const_min);
+		System.out.println(d.d_const_max);
+		System.out.println(d.d_const_zero);
+		System.out.println(Double.isNaN(d.d_const_zero));
+	}
 }
