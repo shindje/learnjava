@@ -37,8 +37,27 @@ public class DataTypes {
 	double d_const_max = 5.0/0; //POSITIVE_INFINITY === Double.POSITIVE_INFINITY
 	double d_const_zero = 0.0/0;// = sqrt(-5); // NaN === Double.NaN
 	
-	
 	public static void main(String[] args) {
+		
+		try {
+			System.out.print("15/0: ");
+			System.out.println(15/0);
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getClass().getName());
+		}
+		System.out.println("15.0/0: " + 15.0/0);
+
+		System.out.println("15.0/2: " + 15.0/2);
+		System.out.println("15/2: " + 15/2);
+		
+		boolean b;
+		//System.out.println(b); //ERROR!!!
+		b = false;
+		//b = 1; //ERROR!!!
+		
+		char c = '\u005B';
+		System.out.println("char c: " + c);
+
 		DataTypes d = new DataTypes();
 		System.out.println(d.d_hex);
 		
