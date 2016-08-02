@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 
 public class Conditions {
 	enum Cases {one, two, three};
@@ -54,6 +56,16 @@ public class Conditions {
 			}
 		}
 		
+		int[] a = {1,42,4};
+		System.out.println(a.toString());
+		Arrays.sort(a);
+		System.out.println(Arrays.toString(a));
+		
+		int [][] b = {{2,5,4}, {3,2}, {4}};
+		System.out.println(Arrays.deepToString(b));
+
+		int [][][] c = {{{2,5,4}, {3,2}, {4}}, {{3,3}, {1}, {4,53,2}}};
+		System.out.println(Arrays.deepToString(c));
 	}
 
 }
