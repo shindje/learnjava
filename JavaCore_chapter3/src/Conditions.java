@@ -64,8 +64,8 @@ public class Conditions {
 		int [][] b = {{2,5,4}, {3,2}, {4}};
 		System.out.println(Arrays.deepToString(b));
 
-		int [][][] c = {{{2,5,4}, {3,2}, {4}}, {{3,3}, {1}, {4,53,2}}};
-		System.out.println(Arrays.deepToString(c));
+		int [][][] cc = {{{2,5,4}, {3,2}, {4}}, {{3,3}, {1}, {4,53,2}}};
+		System.out.println(Arrays.deepToString(cc));
 	}
 
 }
