@@ -2,15 +2,27 @@ package src;
 
 public class Super extends SuperSuper {
 	
-	Super(){
+	protected int pp = 44;
+	
+	protected int getPP() {
+		return pp;
+	}
+	
+	public Super(){
 		super(7);
 	}
 	
-	Super(int superJ) {
+	protected Super(int superJ) {
 		super(superJ);
 	}
 	
 	int j = 5;
+	
+
+	int getSuperP(SuperSuper pp){
+		return pp.getP();
+	}
+
 	
 	/**
 	 * @param args
@@ -39,8 +51,7 @@ public class Super extends SuperSuper {
 		
 		//sArr[2] = new SuperSuper(3);	--ArrayStoreException
 		
-		
-
+		System.out.println(ss.getP());
 	}
 	
 	int getSupetI() {
@@ -63,7 +74,13 @@ public class Super extends SuperSuper {
 }
 
 class SuperSuper {
-	SuperSuper(int jj) {
+	protected int p = 4;
+	
+	int getP() {
+		return p;
+	}
+	
+	public SuperSuper(int jj) {
 		j = jj;
 	}
 	
