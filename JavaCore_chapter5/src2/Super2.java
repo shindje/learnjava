@@ -1,5 +1,7 @@
 package src2;
 
+import java.util.Objects;
+
 import src.Super;
 
 public class Super2 extends Super {
@@ -25,6 +27,8 @@ public class Super2 extends Super {
 		// TODO Auto-generated method stub
 		Super2 s2 = new Super2();
 		System.out.println(s2.getPPP());
+		
+		System.out.println(Objects.equals(new String("aaa"), new String("aaa")));
 	}
 
 }
