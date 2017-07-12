@@ -3,6 +3,7 @@ package src;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import src2.Prot2;
@@ -23,9 +24,7 @@ public class Clone {
 		});
 		
 		t.start();
-		for (long i=1; i<9999999999L; i++){
-		}
-		
+		JOptionPane.showMessageDialog(null, "Quit program?");
 		System.out.println("");
 			// TODO Auto-generated method stub
 		Clone c = new Clone();
