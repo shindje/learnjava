@@ -11,7 +11,7 @@ public class GoodClone implements Cloneable {
 	}
 	
 	@Override
-	public /*!!! PUBLIC*/ GoodClone clone() throws CloneNotSupportedException {
+	public /*!!! PUBLIC IS BETTER*/ GoodClone clone() throws CloneNotSupportedException {
 		// TODO Auto-generated method stub
 		return (GoodClone)super.clone();
 	}
