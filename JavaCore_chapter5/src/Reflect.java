@@ -8,8 +8,9 @@ public class Reflect {
 	 * @param args
 	 * @throws IllegalAccessException 
 	 * @throws IllegalArgumentException 
+	 * @throws NoSuchMethodException 
 	 */
-	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException {
+	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException, NoSuchMethodException {
 		// TODO Auto-generated method stub
 		Class c = Reflect.class;
 		try {
@@ -46,12 +47,18 @@ public class Reflect {
 			Array.set(la, 0, 5);
 			System.out.println("la 0: " + Array.get(la, 0));
 			
+			Method m = pc.getMethod("getK");
+			System.out.println("m.getK: " + m.invoke(p));
+			
 
 			
 		} catch (NoSuchFieldException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -78,4 +85,8 @@ public class Reflect {
 
 class PrivCl {
 	private long k = 3;
+	
+	public long getK() {
+		return k;
+	}
 }
