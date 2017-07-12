@@ -1,5 +1,10 @@
 package src;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
+
 import src2.Prot2;
 
 public class Clone {
@@ -8,7 +13,21 @@ public class Clone {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		javax.swing.Timer t = new Timer(1000, new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.print(" _");
+			}
+		});
+		
+		t.start();
+		for (long i=1; i<9999999999L; i++){
+		}
+		
+		System.out.println("");
+			// TODO Auto-generated method stub
 		Clone c = new Clone();
 		try {
 			c.clone();
