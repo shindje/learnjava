@@ -1,5 +1,6 @@
 package src;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,6 +21,7 @@ public class Clone {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				System.out.print(" _");
+				Toolkit.getDefaultToolkit().beep();
 			}
 		});
 		
