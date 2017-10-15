@@ -12,7 +12,11 @@ public class MyLogger {
 		logger.fine("some");	// No output with level Fine
 		logger.log(Level.INFO, "info text");
 		logger.logp(Level.INFO, "my new class", "my new method", "message from my new");
-		
+		Thread.dumpStack();
+		/*java.lang.Exception: Stack trace
+			at java.lang.Thread.dumpStack(Thread.java:1336)
+			at src.MyLogger.main(MyLogger.java:15)
+		*/
 	}
 
 }
