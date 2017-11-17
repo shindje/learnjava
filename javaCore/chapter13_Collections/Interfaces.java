@@ -27,6 +27,11 @@ public class Interfaces {
 		c.remove("ff");
 		for (Object o: c)
 			System.out.println(o);
+		
+		List al = new ArrayList();
+		System.out.println("ArrayList implements RandomAccess: " + (al instanceof RandomAccess));
+		List ll = new LinkedList();
+		System.out.println("LinkedList implements RandomAccess: " + (ll instanceof RandomAccess));
 	}
 
 }
