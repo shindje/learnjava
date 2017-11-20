@@ -78,6 +78,27 @@ public class FreaqlyUsedClasess {
 		em.put(SomeEnum.A, "a");
 		System.out.println("EnumMap: " + em);
 		
+		Stack stack = new Stack<>();
+		stack.push("a");
+		stack.push("b");
+		System.out.println("Stack: " + stack);
+		System.out.println("Stack.pop(): " + stack.pop());
+		System.out.println("Stack.peek(): " + stack.peek());
+		System.out.println("Stack.pop(): " + stack.pop());
+		
+		BitSet bitSet = new BitSet();
+		bitSet.set(0, true);
+		bitSet.set(1, false);
+		bitSet.set(2, true);
+		bitSet.set(3, false);
+		System.out.println("BitSet (show only 'true' bits): " + bitSet);
+		bitSet.set(3);
+		System.out.println("BitSet after set 3: " + bitSet);
+		BitSet bitSetForAnd = new BitSet();
+		bitSetForAnd.set(2);
+		bitSet.and(bitSetForAnd);
+		System.out.println("BitSet and 001: " + bitSet);
+
 	}
 
 	enum SomeEnum {A, B, C, D};

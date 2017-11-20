@@ -80,6 +80,11 @@ public class Tools {
 		ar2.add("1");
 		Collections.shuffle(ar2);
 		System.out.println("Collections.shuffle: " + ar2);
+		
+		Collections.sort(ar2);
+		System.out.println("Collections.sort(ar2): " + ar2);
+		System.out.println("Collections.binarySearch('3'): " + Collections.binarySearch(ar2, "3"));
+		System.out.println("Collections.binarySearch('4'): " + Collections.binarySearch(ar2, "4") + ". should be inserted in " + (-Collections.binarySearch(ar2, "4") -1) + " position");
 
 	}
 
