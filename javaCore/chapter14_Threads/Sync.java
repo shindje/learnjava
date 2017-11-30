@@ -42,8 +42,14 @@ class MyRunSync implements Runnable {
 				l.lock.lock();
 			try{
 				for (int j = 1; j<10; j++) {
+					if (l.useLock)	//second lock
+						l.lock.lock();
+					
 					l.l = l.l + 5;
 					l.l = l.l - 5;
+					
+					if (l.useLock)	//second unlock
+						l.lock.unlock();
 				}
 				//System.out.println(Thread.currentThread().getId() + " l = " + l.l);// + ". " + "i = " + i + ". l-i*5 = " + (l.l-i*5));
 			} finally {
