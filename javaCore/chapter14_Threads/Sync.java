@@ -85,9 +85,10 @@ class MyRunSync implements Runnable {
 			e.printStackTrace();
 		} finally {
 			if (l.useLock) {
-				l.biggerThenFive.signalAll();
+				l.biggerThenFive.signal();	//might be not safe cause unblocked thread might not be unlock lock depends on check condition  
+				//l.biggerThenFive.signalAll();	//more safety
 				l.lock.unlock();
-				System.out.println(Thread.currentThread().getId() + " signaled All");
+				System.out.println(Thread.currentThread().getId() + " signaled");
 			}
 		}
 
