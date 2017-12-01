@@ -15,9 +15,9 @@ public class Locks {
 		myL.useLock = false;
 		for (int i = 1; i<=1000; i++) {
 			if (i%500 == 0)
-				(new Thread(new MyRunSync(myL, true))).start();
+				(new Thread(new MyRunLock(myL, true))).start();
 			else
-				(new Thread(new MyRunSync(myL, false))).start();
+				(new Thread(new MyRunLock(myL, false))).start();
 		}
 		try {
 			Thread.sleep(1000);
@@ -30,9 +30,9 @@ public class Locks {
 		myL.useLock = true;
 		for (int i = 1; i<=1000; i++) {
 			if (i%500 == 0)
-				(new Thread(new MyRunSync(myL, true))).start();
+				(new Thread(new MyRunLock(myL, true))).start();
 			else
-				(new Thread(new MyRunSync(myL, false))).start();
+				(new Thread(new MyRunLock(myL, false))).start();
 		}
 		
 		try {
@@ -45,11 +45,11 @@ public class Locks {
 	}
 }
 
-class MyRunSync implements Runnable {
+class MyRunLock implements Runnable {
 	MyLong l;
 	boolean unlocker;
 	
-	public MyRunSync(MyLong l, boolean unlocker) {
+	public MyRunLock(MyLong l, boolean unlocker) {
 		// TODO Auto-generated constructor stub
 		this.l = l;
 		this.unlocker = unlocker;
