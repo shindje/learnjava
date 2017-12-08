@@ -42,28 +42,6 @@ public class Synchro {
 			e.printStackTrace();
 		}
 		System.out.println("with synchro block. l = " + myL.l);
-
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		System.out.println("volatile create 50 get");
-		for (int i = 1; i<=50; i++)
-			(new Thread(new MyRunVolatileGet(myL))).start();
-
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		System.out.println("volatile create 1 set");
-		(new Thread(new MyRunVolatileSet(myL))).start();
-	
 	}
 }
 	
@@ -99,46 +77,9 @@ class MyRunSyncBlock implements Runnable {
 	}
 }
 
-class MyRunVolatileGet implements Runnable {
-	MyLong2 l;
-	
-	public MyRunVolatileGet(MyLong2 l) {
-		// TODO Auto-generated constructor stub
-		this.l = l;
-	}
-	
-	@Override
-	public synchronized void run() {
-		// TODO Auto-generated method stub
-		long i = 0;
-		while (l.volatileGet() == 0 && i<1000000000) {
-			i++;
-		}
-		System.out.println(" i=" + i);
-	}
-}
-
-class MyRunVolatileSet implements Runnable {
-	MyLong2 l;
-	
-	public MyRunVolatileSet(MyLong2 l) {
-		// TODO Auto-generated constructor stub
-		this.l = l;
-	}
-	
-	@Override
-	public synchronized void run() {
-		// TODO Auto-generated method stub
-		l.volatileSet(1);
-	}
-}
-
-
-
 class MyLong2 {
 	public long l = 0;
 	Object lockObject = new Object();
-	public volatile long vol = 0;
 	
 	public synchronized void someDoSynchroMethod(boolean unlocker) {	//use intrinsicLock
 		try {
@@ -176,13 +117,4 @@ class MyLong2 {
 			}
 		}
 	}
-	
-	public void volatileSet(long al) {
-		vol = al;
-	}
-	
-	public long volatileGet() {
-		return vol;
-	}
-
 }
