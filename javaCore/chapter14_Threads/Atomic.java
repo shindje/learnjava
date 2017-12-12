@@ -13,7 +13,7 @@ public class Atomic {
 		AtomicLong al1 =  new AtomicLong(0);
 		AtomicRun ar = new AtomicRun();
 		ar.a = al1;
-		for (int i=0; i<0000; i++)
+		for (int i=0; i<500; i++)
 			new Thread(ar).start();
 		Thread.sleep(500);
 		System.out.println();
@@ -23,7 +23,7 @@ public class Atomic {
 		Long l1 =  0l;
 		LongRun lr = new LongRun();
 		lr.a = l1;
-		for (int i=0; i<10000; i++)
+		for (int i=0; i<500; i++)
 			new Thread(lr).start();
 		Thread.sleep(500);
 		System.out.println();
