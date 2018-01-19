@@ -14,6 +14,7 @@ public class FutureCall {
 			@Override
 			public Object call() throws Exception {
 				// TODO Auto-generated method stub
+				//Thread.sleep(1000);
 				return "some thing";
 			}
 		};
@@ -32,10 +33,10 @@ public class FutureCall {
 			e.printStackTrace();
 		}
 		
-		 ExecutorService pool = Executors.newCachedThreadPool();
-		 Future f = pool.submit(task);
-		 try {
-			 System.out.println("get future from pool: " + f.get());
+		ExecutorService pool = Executors.newCachedThreadPool();
+		Future f = pool.submit(task);
+		try {
+			System.out.println("get future from pool: " + f.get());
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,6 +46,35 @@ public class FutureCall {
 		}
 		
 		pool.shutdown();
+		
+		
+		ScheduledExecutorService scheduledPool = Executors.newScheduledThreadPool(2);
+		ScheduledFuture future = scheduledPool.schedule(task, 2, TimeUnit.SECONDS);
+		try {
+			System.out.println("get future from scheduled pool: " + future.get());
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		scheduledPool.shutdown();
+		
+		System.out.println("1");
+		ExecutorService pool2 = Executors.newCachedThreadPool();;
+		ExecutorCompletionService complection = new ExecutorCompletionService(pool2);
+		complection.submit(myCall);
+		try {
+			System.out.println("get future from complection service: " + complection.take().get());
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("2");
 	}
 
 }
