@@ -5,7 +5,7 @@ import java.util.concurrent.CyclicBarrier;
 
 public class AutoSyncThreads {
 
-	/** test win10 eclipse test updatre 444 555
+	/** test win10 eclipse test updatre 444 555 666
 	 * @param args
 	 */
 	public static void main(String[] args) {
