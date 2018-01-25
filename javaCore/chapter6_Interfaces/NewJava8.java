@@ -1,5 +1,10 @@
 package chapter6_Interfaces;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BiFunction;
+import java.util.stream.Stream;
+
 public class NewJava8 implements IFace{
 
 	/**
@@ -21,6 +26,20 @@ public class NewJava8 implements IFace{
 			System.out.println("do lambda 1"); 
 			System.out.println("do lambda 2");
 		});
+		
+		System.out.println(useBiFunctionWithAandB((a, b) -> a + " " + b));
+		
+		String[] ss= {"vf", "avsvs", "F"};
+		Arrays.sort(ss, (a,b)->a.length()-b.length());
+		System.out.println(Arrays.toString(ss));
+
+		Arrays.sort(ss, String::compareToIgnoreCase);
+		System.out.println(Arrays.toString(ss));
+		
+		List<String> ssList = Arrays.asList(ss);
+		Stream<String> ssStream = ssList.stream();
+		String[] ssFromStream = ssStream.toArray(String[]::new);
+		System.out.println("ssFromStream: " + Arrays.toString(ssFromStream));
 	}
 
 	static String getStrFromLambda(Lambda l) {
@@ -29,6 +48,10 @@ public class NewJava8 implements IFace{
 	
 	static void doSomeLambda(LambdaVoid lv) {
 		lv.doLambda();
+	}
+	
+	static String useBiFunctionWithAandB(BiFunction<String, String, String> f) {
+		return f.apply("A", "B");
 	}
 }
 
