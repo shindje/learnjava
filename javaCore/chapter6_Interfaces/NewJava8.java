@@ -1,6 +1,7 @@
 package chapter6_Interfaces;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.stream.Stream;
@@ -40,6 +41,10 @@ public class NewJava8 implements IFace{
 		Stream<String> ssStream = ssList.stream();
 		String[] ssFromStream = ssStream.toArray(String[]::new);
 		System.out.println("ssFromStream: " + Arrays.toString(ssFromStream));
+		
+		
+		ssList.sort(Comparator.comparingInt(s -> s.length()));
+		System.out.println("ssList sort by length: " + ssList);
 	}
 
 	static String getStrFromLambda(Lambda l) {
