@@ -1,4 +1,4 @@
-package chapter3_MainJavaConstructions;
+package chapter_1_03_MainJavaConstructions;
 
 public class Strings {
 

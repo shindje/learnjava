@@ -1,4 +1,4 @@
-package chapter4_Objects;
+package chapter_1_04_Objects;
 
 public class Super extends SuperSuper {
 	

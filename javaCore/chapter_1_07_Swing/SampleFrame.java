@@ -1,4 +1,4 @@
-package chapter7_Swing;
+package chapter_1_07_Swing;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

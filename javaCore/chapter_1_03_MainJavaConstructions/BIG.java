@@ -1,4 +1,4 @@
-package chapter3_MainJavaConstructions;
+package chapter_1_03_MainJavaConstructions;
 import java.math.BigDecimal;
 
 public class BIG {

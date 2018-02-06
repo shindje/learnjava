@@ -1,4 +1,4 @@
-package chapter12_Generics;
+package chapter_1_12_Generics;
 
 public class Extend {
 	static <T extends Number> int getInt(T number) {

@@ -1,4 +1,4 @@
-package chapter5_Extends;
+package chapter_1_05_Extends;
 
 public class AClass {
 

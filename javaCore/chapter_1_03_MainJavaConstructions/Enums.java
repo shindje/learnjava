@@ -1,4 +1,4 @@
-package chapter3_MainJavaConstructions;
+package chapter_1_03_MainJavaConstructions;
 enum Size {SMALL, MEDIuM, LARGE, EXTRA_LARGE};
 
 public class Enums {

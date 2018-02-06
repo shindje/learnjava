@@ -1,4 +1,4 @@
-package chapter11_Exception;
+package chapter_1_11_Exception;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -1,4 +1,4 @@
-package chapter12_Generics;
+package chapter_1_12_Generics;
 
 import java.util.logging.Logger;
 

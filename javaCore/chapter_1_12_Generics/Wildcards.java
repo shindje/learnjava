@@ -1,4 +1,4 @@
-package chapter12_Generics;
+package chapter_1_12_Generics;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.TypeVariable;

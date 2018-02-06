@@ -1,4 +1,4 @@
-package chapter9_SwingComponents;
+package chapter_1_09_SwingComponents;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

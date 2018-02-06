@@ -1,4 +1,4 @@
-package chapter6_Interfaces;
+package chapter_1_06_Interfaces;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

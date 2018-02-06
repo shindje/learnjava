@@ -1,4 +1,4 @@
-package chapter8_AWT_Events;
+package chapter_1_08_AWT_Events;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

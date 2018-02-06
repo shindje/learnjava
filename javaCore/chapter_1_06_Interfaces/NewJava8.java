@@ -1,4 +1,4 @@
-package chapter6_Interfaces;
+package chapter_1_06_Interfaces;
 
 import java.util.Arrays;
 import java.util.Comparator;
