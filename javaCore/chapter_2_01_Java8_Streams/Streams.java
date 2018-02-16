@@ -20,17 +20,13 @@ public class Streams {
 		prints("Stream.iterate: ", Stream.iterate(BigInteger.valueOf(5), i->i.add(BigInteger.valueOf(3))).limit(4));
 		prints("Arrays.stream (from 3rd to 7th): ", Arrays.stream(new Integer[]{3,5,2,5,7,3,1,4,3,6}, 3, 7));
 		
-		prints("map(i+3) ", l.stream().map(i->i+3));
-		prints("maps(i+3) ", l.stream().map(i->Stream.generate(()->i+3).limit(1)));
-		prints("flatmap(i+3) ", l.stream().flatMap(i->Stream.generate(()->i+3).limit(1)));
-		
 	}
 
 	static void prints(String ss, Stream s) {
 		System.out.println(ss + s.collect(Collectors.toList()));
 	}
 
-	static void prints(String ss, Stream s, int limit) {
+	public static void prints(String ss, Stream s, int limit) {
 		prints(ss, s.limit(limit));
 	}
 }
