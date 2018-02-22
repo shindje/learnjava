@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,10 +28,6 @@ public class StreamMethods {
 		l.stream().limit(5).forEach(i -> System.out.print(i + ", "));
 		System.out.println();
 		
-		System.out.println("to Array: " + Arrays.deepToString(l.stream().limit(5).toArray()));
-		System.out.println("Collectors to List: " + l.stream().limit(5).collect(Collectors.toList()));
-		System.out.println("Collectors joining: " + l.stream().limit(5).map(Object::toString).collect(Collectors.joining(", ")));
-		System.out.println("Collectors summarizingInt getAverage: " + l.stream().limit(5).collect(Collectors.summarizingInt(i->i)).getAverage());
 		prints("map(i+3) ", l.stream().map(i->i+3));
 		prints("maps(i+3) ", l.stream().map(i->Stream.generate(()->i+3).limit(1)));		
 		prints("flatmap(i+3) ", l.stream().flatMap(i->Stream.generate(()->i+3).limit(1)));
@@ -50,7 +48,23 @@ public class StreamMethods {
 		System.out.print("Optional.ifPresent - findAny>5 + 3: ");
 		l.stream().filter(i -> i>5).findFirst().ifPresent(i -> System.out.println("consumed " + (i+3)));
 		System.out.println("Optional.map - findAny>5 + 3: " + l.stream().filter(i -> i>5).findFirst().map(i -> i+3));
-		System.out.println("Optional.flatMap. findFirst>5: " + l.stream().filter(i -> i>5).findFirst().flatMap(StreamMethods::toOptionalString));	
+		System.out.println("Optional.flatMap. findFirst>5: " + l.stream().filter(i -> i>5).findFirst().flatMap(StreamMethods::toOptionalString));
+		
+		System.out.println("to Array: " + Arrays.deepToString(l.stream().limit(5).toArray()));
+		System.out.println("Collectors to List: " + l.stream().limit(5).collect(Collectors.toList()));
+		System.out.println("Collectors joining: " + l.stream().limit(5).map(Object::toString).collect(Collectors.joining(", ")));
+		System.out.println("Collectors summarizingInt getAverage: " + l.stream().limit(5).collect(Collectors.summarizingInt(i->i)).getAverage());
+		System.out.println("Collectors toMape: " + l.stream().limit(10).collect(Collectors.toMap(i -> i.hashCode(), Function.identity(), (oldVal, newVal) -> newVal)));
+		
+		Map evensOdds = l.stream().limit(10).collect(Collectors.groupingBy(i -> (i/2*2==i)?"even":"odd"));
+		System.out.println("Collectors groupingBy: " + evensOdds);
+		System.out.println("Collectors partitionBy: " + l.stream().limit(10).collect(Collectors.partitioningBy(i -> (i/2*2==i))));
+		System.out.println("Collectors groupingBy toSet: " + l.stream().limit(10).collect(Collectors.groupingBy(i -> (i/2*2==i)?"even":"odd", Collectors.toSet())));
+		System.out.println("Collectors groupingBy counting: " + l.stream().limit(10).collect(Collectors.groupingBy(i -> (i/2*2==i)?"even":"odd", Collectors.counting())));
+		System.out.println("Collectors groupingBy mapping: " + l.stream().limit(10).collect(Collectors.groupingBy(i -> (i/2*2==i)?"even":"odd", 
+				Collectors.mapping(i -> (i>0)?"positive " + i: "negative " + i, Collectors.toList()))));
+		System.out.println("Collectors groupingBy summarizing: " + l.stream().limit(10).collect(Collectors.groupingBy(i -> (i/2*2==i)?"even":"odd",
+				Collectors.summarizingInt(i->i))));
 	}
 	
 	static Optional<String> toOptionalString(Integer i) {
