@@ -65,6 +65,8 @@ public class StreamMethods {
 				Collectors.mapping(i -> (i>0)?"positive " + i: "negative " + i, Collectors.toList()))));
 		System.out.println("Collectors groupingBy summarizing: " + l.stream().limit(10).collect(Collectors.groupingBy(i -> (i/2*2==i)?"even":"odd",
 				Collectors.summarizingInt(i->i))));
+		
+		System.out.println("reduce a+b: " + l.stream().reduce(Integer::sum));
 	}
 	
 	static Optional<String> toOptionalString(Integer i) {
