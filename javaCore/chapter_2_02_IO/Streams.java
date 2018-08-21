@@ -1,13 +1,6 @@
 package chapter_2_02_IO;
 
-import java.io.BufferedInputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PushbackInputStream;
+import java.io.*;
 
 public class Streams {
 
@@ -24,6 +17,13 @@ public class Streams {
 
 		DataInputStream din = new DataInputStream(pbin);
 		System.out.println(din.readInt());
+		
+		PrintWriter pw = new PrintWriter("txtfile");
+		pw.write("string one");
+		pw.write(45);
+		pw.write(new Integer(45).toString());
+		pw.write("end");
+		pw.close();
 	}
 
 }
