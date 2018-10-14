@@ -15,13 +15,19 @@ public class Streams {
 		PushbackInputStream pbin = null;
 		pbin = new PushbackInputStream(new BufferedInputStream(new FileInputStream("intfile")));
 
+		int b = pbin.read();
+		System.out.println("before (pushback): " + b);
+		pbin.unread(b);
+		System.out.println("returned");
+
 		DataInputStream din = new DataInputStream(pbin);
 		System.out.println(din.readInt());
 		
 		PrintWriter pw = new PrintWriter("txtfile");
 		pw.write("string one");
 		pw.write(45);
-		pw.write(new Integer(45).toString());
+		pw.print(46);
+		pw.write(new Integer(47).toString());
 		pw.write("end");
 		pw.close();
 	}
