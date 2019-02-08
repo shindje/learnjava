@@ -22,14 +22,6 @@ public class Streams {
 
 		DataInputStream din = new DataInputStream(pbin);
 		System.out.println(din.readInt());
-		
-		PrintWriter pw = new PrintWriter("txtfile");
-		pw.write("string one");
-		pw.write(45);
-		pw.print(46);
-		pw.write(new Integer(47).toString());
-		pw.write("end");
-		pw.close();
 	}
 
 }
