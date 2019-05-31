@@ -1,5 +1,6 @@
 package chapter_2_02_IO;
 
+import java.beans.Transient;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,6 +17,7 @@ public class Serial {
 		MyClass m1 = new MyClass();
 		m1.s = "m1";
 		m1.i = 3;
+		m1.s2 = "ss2";
 		
 		MyClass son = new MyClass();
 		son.s = "son1";
@@ -47,11 +49,13 @@ class MyClass implements Serializable {
 	String s;
 	int i;
 	
+	transient String s2;
+	
 	MyClass son;
 	
 	@Override
 	public String toString() {
-		return "MyClass: " + s + " " + i + " Son: [" + son + "]";
+		return "MyClass: " + s + " " + i + " s2: " + s2 + ". Son: [" + son + "]";
 	};
 }
 
