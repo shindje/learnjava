@@ -1,8 +1,10 @@
 package chapter_2_02_IO;
 
 import java.nio.file.Files;
+import java.util.stream.Stream;
 import java.io.IOException;
 import java.nio.file.*;
+import static chapter_2_01_Java8_Streams.Streams.prints;
 
 public class Files7 {
 
@@ -25,6 +27,10 @@ public class Files7 {
 		System.out.println("\nfor big files use: Reader in = Files.newInputStream, Writer out = Files.newOutputStream");
 		
 		System.out.println("\ncreate temp file: " + Files.createTempFile(null, ".txt"));
+		
+		try (Stream<String> ss = Files.lines(p)) {
+			prints("\nread to stream (length > 15): ", ss.filter(l -> l.length() > 15));
+		}
 		
 
 	}
